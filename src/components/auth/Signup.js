@@ -17,6 +17,8 @@ const Signup = () => {
   );
 
   useEffect(() => {
+    if (error) {
+    }
     dispatch(clearErrors());
 
     if (isAuthenticated) {
