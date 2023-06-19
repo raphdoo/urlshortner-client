@@ -19,7 +19,7 @@ const Signup = () => {
   useEffect(() => {
     if (isAuthenticated) {
       store.dispatch(LoadUser());
-      Navigate('/');
+      Navigate('/dashboard');
     }
   }, [dispatch, isAuthenticated, Navigate]);
 
