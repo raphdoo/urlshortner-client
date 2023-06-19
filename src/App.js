@@ -22,11 +22,12 @@ import QrCode from './components/dashboard/qrCode';
 import CustomUrl from './components/dashboard/CustomUrl';
 import CreateCustomUrl from './components/dashboard/createCustomUrl';
 import QrGenerator from './components/dashboard/qrGenerator';
+import Loader from './components/layouts/Loader';
 
 // import { LoadUserAnalytics } from './actions/urlAction';
 
 function App() {
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     store.dispatch(LoadUser());
@@ -37,7 +38,9 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          {!isAuthenticated ? (
+          {loading ? (
+            <Loader />
+          ) : !isAuthenticated ? (
             <Route path="/" element={<Home />} exact />
           ) : (
             <Route path="/" element={<Dashboard />} exact />
