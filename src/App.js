@@ -27,7 +27,7 @@ import Loader from './components/layouts/Loader';
 // import { LoadUserAnalytics } from './actions/urlAction';
 
 function App() {
-  const { isAuthenticated } = useSelector((state) => state.auth);
+  const { isAuthenticated, loading } = useSelector((state) => state.auth);
 
   useEffect(() => {
     store.dispatch(LoadUser());
