@@ -37,13 +37,20 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          {!isAuthenticated ? (
-            <Route path="/" element={<Home />} exact />
-          ) : (
-            <Route path="/" element={<Dashboard />} exact />
-          )}
+          <Route path="/" element={<Home />} exact />
+
           <Route path="/signin" element={<Login />} exact />
           <Route path="/signup" element={<Signup />} exact />
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute isAuthenticated={isAuthenticated}>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+            exact
+          />
 
           <Route
             path="/urls"

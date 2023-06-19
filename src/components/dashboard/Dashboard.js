@@ -3,9 +3,16 @@ import { Link } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import { useDispatch, useSelector } from 'react-redux';
+import { LoadUser } from '../../actions/userAction';
 
 const Dashboard = () => {
   const { user } = useSelector((state) => state.auth);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(LoadUser());
+  }, [dispatch]);
 
   return (
     <Fragment>
