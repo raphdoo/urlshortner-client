@@ -15,7 +15,8 @@ import {
   SIGNOUT_SUCCESS,
 } from '../constants/userConstant';
 
-const domain = 'http://localhost:4000';
+const domain =
+  'http://localhost:4000' || 'https://urlshortner-server.onrender.com';
 
 //Signin
 
