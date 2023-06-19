@@ -22,8 +22,7 @@ import {
   GENERATE_QR_FAIL,
 } from '../constants/urlConstant';
 
-const domain =
-  'http://localhost:4000' || 'https://urlshortner-server.onrender.com';
+const domain = 'https://urlshortner-server.onrender.com';
 
 // LoadUser Analytics
 export const getUrlAnalytics = () => async (dispatch) => {
