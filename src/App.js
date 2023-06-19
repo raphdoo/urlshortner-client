@@ -27,7 +27,7 @@ import Loader from './components/layouts/Loader';
 // import { LoadUserAnalytics } from './actions/urlAction';
 
 function App() {
-  const { isAuthenticated, loading } = useSelector((state) => state.auth);
+  const { isAuthenticated } = useSelector((state) => state.auth);
 
   useEffect(() => {
     store.dispatch(LoadUser());
@@ -38,9 +38,8 @@ function App() {
       <div className="App">
         <Header />
         <Routes>
-          {loading ? (
-            <Loader />
-          ) : !isAuthenticated ? (
+          {loading && <Loader />}
+          {!isAuthenticated ? (
             <Route path="/" element={<Home />} exact />
           ) : (
             <Route path="/" element={<Dashboard />} exact />
