@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import Sidebar from './Sidebar';
 import { useSelector } from 'react-redux';
+import Loader from '../layouts/Loader';
 
 const Dashboard = () => {
   const { user } = useSelector((state) => state.auth);
@@ -14,7 +15,7 @@ const Dashboard = () => {
           <Sidebar />
         </div>
 
-        {user && (
+        {user ? (
           <div className="col-12 col-md-10">
             <h1 className="my-4">Dashboard</h1>
 
@@ -75,6 +76,8 @@ const Dashboard = () => {
               </div>
             </Fragment>
           </div>
+        ) : (
+          <Loader />
         )}
       </div>
     </Fragment>
