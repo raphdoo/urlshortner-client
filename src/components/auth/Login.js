@@ -17,16 +17,19 @@ const Login = () => {
   );
 
   useEffect(() => {
+    dispatch(clearErrors());
+
     if (isAuthenticated) {
       store.dispatch(LoadUser());
-      Navigate('/dashboard');
+      Navigate('/');
     }
-  }, [dispatch, isAuthenticated, Navigate]);
+  }, [dispatch, isAuthenticated, error, Navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
 
     dispatch(login(email, password));
+    Navigate('/');
   };
   return (
     <Fragment>

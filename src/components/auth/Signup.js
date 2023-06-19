@@ -17,11 +17,13 @@ const Signup = () => {
   );
 
   useEffect(() => {
+    dispatch(clearErrors());
+
     if (isAuthenticated) {
       store.dispatch(LoadUser());
-      Navigate('/dashboard');
+      Navigate('/');
     }
-  }, [dispatch, isAuthenticated, Navigate]);
+  }, [dispatch, isAuthenticated, error, Navigate]);
 
   const submitHandler = (e) => {
     e.preventDefault();
