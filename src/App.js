@@ -39,7 +39,7 @@ function App() {
         <Header />
         <Routes>
           {!isAuthenticated ? (
-            <Route path="/" element={<Home />} exact />
+            <Route path="/" element={loading ? <Loader /> : <Home />} exact />
           ) : (
             <Route
               path="/"
